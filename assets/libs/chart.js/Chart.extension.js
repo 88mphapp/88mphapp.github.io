@@ -72,6 +72,14 @@ Chart.elements.Rectangle.prototype.draw = function() {
         [right, top],
         [right, bottom]
     ];
+    if(this._chart.config.data.datasets[this._datasetIndex].data[this._index] < 0) {
+        corners = [
+            [left, top],
+            [left, bottom],
+            [right, top],
+            [right, bottom]
+        ];
+    }
 
     // Find first (starting) corner with fallback to 'bottom'
     var borders = ['bottom', 'left', 'top', 'right'];
@@ -127,4 +135,4 @@ Chart.elements.Rectangle.prototype.draw = function() {
     if (borderWidth) {
         ctx.stroke();
     }
-}; 
+};
